@@ -3,9 +3,11 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Download, ExternalLink } from "lucide-react";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { Button } from "../ui/button";
+import Link from "next/link";
 
 export function AboutSection() {
   const ref = useRef(null);
@@ -48,11 +50,27 @@ export function AboutSection() {
             <Card className="mb-12">
               <CardContent className="p-6 md:p-8">
                 <p className="text-lg leading-relaxed">
-                  With over 5 years of experience in web development, I've dedicated my career to crafting exceptional user experiences and powerful backend systems. I'm driven by solving complex problems and creating innovative solutions that make a real difference.
+                  With over 4 years of experience in web development, I've dedicated my career to crafting exceptional user experiences and powerful backend systems. I'm driven by solving complex problems and creating innovative solutions that make a real difference.
                 </p>
                 <p className="text-lg leading-relaxed mt-4">
                   As a developer, I pride myself on writing clean, maintainable code and staying current with emerging technologies. My passion for AI and automation led me to found Nuruai, where I help businesses leverage the power of artificial intelligence to streamline their operations.
                 </p>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  className="text-center mt-5"
+                >
+                  <Button asChild size="lg" className="gap-2">
+                    <a 
+                    href={"/jospin_ndagano_resume.pdf"} 
+                    download
+                    className="flex items-center gap-2">
+                      <Download className="h-4 w-4" /> Download my Resume
+                    </a>
+                  </Button>
+                </motion.div>
               </CardContent>
             </Card>
           </motion.div>

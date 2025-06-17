@@ -63,22 +63,22 @@ export function SkillsSection() {
     {
       icon: <Server className="h-6 w-6" />,
       title: "Backend",
-      skills: ["Ruby on Rails", "FastAPI", "GraphQL", "RESTful APIs"],
+      skills: ["Ruby on Rails", "FastAPI", "Python"],
     },
     {
       icon: <Database className="h-6 w-6" />,
       title: "Databases",
-      skills: ["PostgreSQL", "Redis", "SQLModel", "Prisma", "Sequelize"],
+      skills: ["PostgreSQL", "Redis"],
     },
     {
       icon: <Cpu className="h-6 w-6" />,
       title: "AI & Machine Learning",
-      skills: ["Python", "TensorFlow", "LangChain", "Hugging Face", "OpenAI APIs", "Vercel AI"],
+      skills: ["Python", "n8n"],
     },
     {
       icon: <Container className="h-6 w-6" />,
       title: "DevOps",
-      skills: ["Docker", "CI/CD", "AWS", "Vercel"],
+      skills: ["Docker", "CI/CD", "Vercel"],
     },
     {
       icon: <GitBranch className="h-6 w-6" />,

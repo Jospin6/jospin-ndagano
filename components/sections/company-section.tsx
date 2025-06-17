@@ -117,7 +117,7 @@ export function CompanySection() {
             className="text-center"
           >
             <Button asChild size="lg" className="gap-2">
-              <Link href="#contact">
+              <Link href="https://nuruai.vercel.app" target="_blank" rel="noopener noreferrer">
                 Get in Touch <ExternalLink className="h-4 w-4" />
               </Link>
             </Button>
