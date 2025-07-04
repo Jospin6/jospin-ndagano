@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Github } from "lucide-react";
-import { cn } from "@/lib/utils";
 import cvcometImg from "../../public/cvcometImg.png";
 import filmfusion from "../../public/filmfusion.png";
 import recipe from "../../public/recipe.png";

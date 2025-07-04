@@ -6,8 +6,8 @@ import { Separator } from "@/components/ui/separator";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { 
-  Code2, Database, Server, GitBranch, Layers, 
-  Cpu, Container, Braces, AirplayIcon, Terminal
+  Code2, Database, Server, GitBranch, 
+  Container, AirplayIcon
 } from "lucide-react";
 
 interface SkillCategoryProps {

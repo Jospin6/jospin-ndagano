@@ -3,11 +3,10 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { CheckCircle2, Download, ExternalLink } from "lucide-react";
+import { Download } from "lucide-react";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Button } from "../ui/button";
-import Link from "next/link";
 
 export function AboutSection() {
   const ref = useRef(null);
@@ -63,10 +62,10 @@ export function AboutSection() {
                   className="text-center mt-5"
                 >
                   <Button asChild size="lg" className="gap-2">
-                    <a 
-                    href={"/jospin_ndagano_resume.pdf"} 
-                    download
-                    className="flex items-center gap-2">
+                    <a
+                      href={"/jospin_ndagano_resume.pdf"}
+                      download
+                      className="flex items-center gap-2">
                       <Download className="h-4 w-4" /> Download my Resume
                     </a>
                   </Button>
@@ -74,52 +73,6 @@ export function AboutSection() {
               </CardContent>
             </Card>
           </motion.div>
-
-          {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <motion.div variants={itemVariants}>
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-4">My Approach</h3>
-                  <ul className="space-y-3">
-                    {[
-                      "User-centered design principles",
-                      "Clean, maintainable code architecture",
-                      "Performance optimization as standard",
-                      "Continuous learning and improvement",
-                      "Collaborative development process",
-                    ].map((item, index) => (
-                      <li key={index} className="flex items-start">
-                        <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5 mr-2" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            <motion.div variants={itemVariants}>
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-4">Key Values</h3>
-                  <ul className="space-y-3">
-                    {[
-                      "Excellence in every detail",
-                      "Clear communication",
-                      "Transparent project management",
-                      "Ethical AI development",
-                      "Continuous innovation",
-                    ].map((item, index) => (
-                      <li key={index} className="flex items-start">
-                        <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5 mr-2" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </div> */}
         </motion.div>
       </div>
     </section>
