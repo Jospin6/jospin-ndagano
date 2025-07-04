@@ -58,12 +58,12 @@ export function SkillsSection() {
     {
       icon: <Code2 className="h-6 w-6" />,
       title: "Frontend",
-      skills: ["React", "Next.js", "TypeScript", "TailwindCSS", "HTML/CSS", "shadcn/ui", "Redux", "Framer Motion"],
+      skills: ["React", "Next.js", "TypeScript", "TailwindCSS"],
     },
     {
       icon: <Server className="h-6 w-6" />,
       title: "Backend",
-      skills: ["Ruby on Rails", "FastAPI", "Python"],
+      skills: [ "FastAPI", "Next.js", "Python"],
     },
     {
       icon: <Database className="h-6 w-6" />,
@@ -71,14 +71,9 @@ export function SkillsSection() {
       skills: ["PostgreSQL", "Redis"],
     },
     {
-      icon: <Cpu className="h-6 w-6" />,
-      title: "AI & Machine Learning",
-      skills: ["Python", "n8n"],
-    },
-    {
       icon: <Container className="h-6 w-6" />,
       title: "DevOps",
-      skills: ["Docker", "CI/CD", "Vercel"],
+      skills: ["Docker", "CI/CD"],
     },
     {
       icon: <GitBranch className="h-6 w-6" />,
@@ -88,12 +83,7 @@ export function SkillsSection() {
     {
       icon: <AirplayIcon className="h-6 w-6" />,
       title: "Testing",
-      skills: ["Jest", "Cypress", "React Testing Library", "Pytest", "RSpec"],
-    },
-    {
-      icon: <Terminal className="h-6 w-6" />,
-      title: "Tools & Utilities",
-      skills: ["Webpack", "Babel", "ESLint", "Prettier", "npm/yarn", "Vite"],
+      skills: ["Jest", "Cypress", "Pytest" ],
     }
   ];
 

@@ -87,7 +87,7 @@ export function ProjectsSection() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Projects</h2>
           <Separator className="w-20 mx-auto mb-6" />
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Explore my recent work across web, mobile, and AI development.
+            Explore my recent work across web and AI development.
             Each project represents my commitment to quality and innovation.
           </p>
         </motion.div>

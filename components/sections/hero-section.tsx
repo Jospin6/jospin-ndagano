@@ -26,27 +26,19 @@ export function HeroSection() {
             className="flex flex-col space-y-6"
           >
             <div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
-                className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary mb-6"
-              >
-                Full-Stack Developer & AI Expert
-              </motion.div>
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tighter mb-4"
+                className="text-2xl md:text-4xl font-bold leading-tight tracking-tighter mb-4"
               >
-                Building <span className="text-primary">intelligent</span> digital experiences
+                Hello 👋 i'm <span className="text-primary">Jospin Ndagano. </span> I'm a Full Stack Software Developer.
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.5 }}
-                className="text-xl text-muted-foreground max-w-md"
+                className="text-lg text-muted-foreground max-w-md"
               >
                 I craft modern web applications and AI solutions that help businesses thrive in the digital era.
               </motion.p>
@@ -80,11 +72,12 @@ export function HeroSection() {
             <div className="relative aspect-square max-w-md mx-auto">
               <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br from-chart-1/50 to-chart-2/50 ${theme === 'dark' ? 'opacity-70' : 'opacity-30'}`}></div>
               <div className="absolute inset-0 backdrop-blur-3xl rounded-2xl"></div>
-              <div className="absolute inset-4 rounded-xl bg-card/80 backdrop-blur-sm flex items-center justify-center">
-                <div className="text-center p-6">
-                  <div className="text-4xl font-bold mb-2">Nuruai</div>
-                  <div className="text-muted-foreground">AI Automation Agency</div>
-                </div>
+              <div className="absolute inset-4 rounded-xl backdrop-blur-sm flex items-center justify-center">
+                <img
+                  src="/jospin_ndagano.jpg"
+                  alt="Jospin Ndagano"
+                  className="w-full h-full object-cover rounded-xl shadow-lg"
+                />
               </div>
             </div>
           </motion.div>

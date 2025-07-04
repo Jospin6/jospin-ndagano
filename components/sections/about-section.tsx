@@ -75,7 +75,7 @@ export function AboutSection() {
             </Card>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <motion.div variants={itemVariants}>
               <Card>
                 <CardContent className="p-6">
@@ -119,7 +119,7 @@ export function AboutSection() {
                 </CardContent>
               </Card>
             </motion.div>
-          </div>
+          </div> */}
         </motion.div>
       </div>
     </section>
