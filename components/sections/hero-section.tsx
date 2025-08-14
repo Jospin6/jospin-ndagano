@@ -56,27 +56,27 @@ export function HeroSection() {
             Github
           </Link>
         </Button>
-        <Button asChild variant="outline" size="lg" className="gap-2 px-2 mr-4 h-[30px]">
+        <Button asChild variant="outline" size="lg" className="gap-2 px-2 mr-4 mb-2 h-[30px]">
           <Link href="https://www.linkedin.com/in/jospin-ndagano/">
             LinkedIn
           </Link>
         </Button>
-        <Button asChild variant="outline" size="lg" className="gap-2 px-2 mr-4 h-[30px]">
+        <Button asChild variant="outline" size="lg" className="gap-2 px-2 mr-4 mb-2 h-[30px]">
           <Link href="https://twitter.com/JospinNdagano">
             X
           </Link>
         </Button>
-        <Button asChild variant="outline" size="lg" className="gap-2 px-2 mr-4 h-[30px]">
+        <Button asChild variant="outline" size="lg" className="gap-2 px-2 mr-4 mb-2 h-[30px]">
           <Link href="https://medium.com/@jospinndagano1">
             Medium
           </Link>
         </Button>
-        <Button asChild variant="outline" size="lg" className="gap-2 px-2 mr-4 h-[30px]">
+        <Button asChild variant="outline" size="lg" className="gap-2 px-2 mr-4 mb-2 h-[30px]">
           <Link href="https://dev.to/jospin6">
             {"Dev.to"}
           </Link>
         </Button>
-        <Button asChild variant="outline" size="lg" className="gap-2 px-2 mr-4 h-[30px]">
+        <Button asChild variant="outline" size="lg" className="gap-2 px-2 mr-4 mb-2 h-[30px]">
           <a
             href={"/jospin_ndagano_resume.pdf"}
             download
