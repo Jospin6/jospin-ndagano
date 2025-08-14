@@ -30,8 +30,8 @@ export const ImageCard = ({ project }: { project: Project }) => {
                     <p className="text-sm"> {project.description} </p>
 
                     <div className="mt-4 pt-2 border-t flex-wrap">
-                        {project.technologies && project.technologies.map(tech => (
-                            <Button variant="outline" size="lg" className="gap-2 h-[30px] px-2 m-1">
+                        {project.technologies && project.technologies.map((tech, i) => (
+                            <Button variant="outline" key={i} size="lg" className="gap-2 h-[30px] px-2 m-1">
                                 {tech}
                             </Button>
                         ))}
