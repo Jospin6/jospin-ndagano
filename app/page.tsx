@@ -1,19 +1,18 @@
 import { HeroSection } from '@/components/sections/hero-section';
-import { AboutSection } from '@/components/sections/about-section';
-import { SkillsSection } from '@/components/sections/skills-section';
-import { ServicesSection } from '@/components/sections/services-section';
-import { ProjectsSection } from '@/components/sections/projects-section';
-import { CompanySection } from '@/components/sections/company-section';
-import { ContactSection } from '@/components/sections/contact-section';
+import { SectionItem } from '@/components/sections/sectionItem';
+import { SectionProjects } from '@/components/sections/sectionProjects';
+import { SectionContact } from '@/components/sections/sectionContact';
+import { contentAccomplishments, contentArticles, contentSkills } from '@/lib/content';
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen px-4 md:px-0 md:w-6/12 md:m-auto">
       <HeroSection />
-      <AboutSection />
-      <SkillsSection />
-      <ProjectsSection />
-      <ContactSection />
+      <SectionItem title="Thing I've done" content={contentAccomplishments}/>
+      <SectionItem title="Skills" content={contentSkills}/>
+      <SectionItem title="My Articles" content={contentArticles}/>
+      <SectionProjects/>
+      <SectionContact/>
     </div>
   );
 }

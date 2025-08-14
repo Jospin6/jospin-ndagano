@@ -41,14 +41,14 @@ export function Header() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300",
+        "transition-all px-4 md:px-0 md:w-6/12 md:m-auto duration-300",
         scrolled
           ? "bg-background/80 backdrop-blur-md shadow-md py-3"
           : "bg-transparent py-5"
       )}
     >
-      <div className="container flex items-center justify-between">
-        <Link href="#home" className="ml-2 md:ml-6">
+      <div className="flex items-center justify-between">
+        <Link href="#home" className="">
           <div className="font-bold text-xl">
             <span className="text-primary">Jospin</span>
             <span className="text-primary/80 pl-2">N.</span>
@@ -56,16 +56,7 @@ export function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-1">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="px-3 py-2 text-sm font-medium hover:text-primary transition-colors"
-            >
-              {item.name}
-            </Link>
-          ))}
+        <nav className="flex items-center space-x-1">
           <Button
             variant="ghost"
             size="icon"
@@ -79,7 +70,7 @@ export function Header() {
         </nav>
 
         {/* Mobile Navigation */}
-        <div className="flex items-center md:hidden">
+        {/* <div className="flex items-center md:hidden">
           <Button
             variant="ghost"
             size="icon"
@@ -111,7 +102,7 @@ export function Header() {
               </nav>
             </SheetContent>
           </Sheet>
-        </div>
+        </div> */}
       </div>
     </motion.header>
   );
