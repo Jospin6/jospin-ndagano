@@ -1,6 +1,7 @@
 import cvcometImg from "../public/cvcometImg.png";
-import filmfusion from "../public/filmfusion.png";
-import recipe from "../public/recipe.png";
+import askflow from "../public/askflow.png";
+import doc_chat from "../public/doc_chat.png";
+import kaziup from "../public/kaziup.png";
 
 export interface contentState {
     title: string,
@@ -139,20 +140,29 @@ export const projects: Project[] = [
     },
     {
         id: 2,
-        title: "FilmFusion",
-        description: "A web application using the TMDB API and provide users informations about films and tv shows.",
-        image: `${filmfusion.src}`,
-        technologies: ["React", "RestAPI", "Tailwind CSS", "TypeScript", "Redux"],
-        liveUrl: "https://filmsfusion.netlify.app",
-        githubUrl: "https://github.com/Jospin6/film-fusion"
+        title: "Askflow",
+        description: "AskFlow is an intelligent chatbot application that leverages advanced AI decision-making to provide accurate responses by either answering directly from its knowledge or performing real-time internet searches using Tavily Search API.",
+        image: `${askflow.src}`,
+        technologies: ["Python", "Langgraph", "Streamlit", "FastAPI"],
+        liveUrl: "https://askflow.streamlit.app",
+        githubUrl: "https://github.com/Jospin6/askflow"
     },
     {
         id: 3,
-        title: "Recipe catalogue",
-        description: "An app where users can find almost any recipe.",
-        image: `${recipe.src}`,
-        technologies: ["React", "TypeScript", "Redux"],
-        liveUrl: "https://recipe-catalogue-next.netlify.app",
-        githubUrl: "https://github.com/Jospin6/recipe-catalogue"
-    }
+        title: "Doc Chat",
+        description: "A modern web application that allows users to upload PDF documents and interact with them using Retrieval-Augmented Generation (RAG) powered by LangChain and TypeScript.",
+        image: `${doc_chat.src}`,
+        technologies: ["React", "TypeScript", "Langchain", "NaxtJS"],
+        liveUrl: "https://document-chat-three.vercel.app",
+        githubUrl: "https://github.com/Jospin6/doc-chat"
+    },
+    {
+        id: 4,
+        title: "KaziUp",
+        description: "KaziUp is an online job search application that connects job seekers with opportunities across various sectors and industries.",
+        image: `${kaziup.src}`,
+        technologies: ["React", "TypeScript", "Redux", "NaxtJS"],
+        liveUrl: "https://github.com/Jospin6/kazi_up",
+        githubUrl: "https://github.com/Jospin6/kazi_up"
+    },
 ];
