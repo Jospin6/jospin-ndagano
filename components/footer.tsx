@@ -41,7 +41,7 @@ export function Footer() {
             <Link href={"mailto:jospinndagano1@gmail.com"} className="underline text-sm">jospinndagano1@gmail.com</Link>
           </div>
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Nuruai. All rights reserved.
+            Copyright {new Date().getFullYear()} Nuruai. All rights reserved.
           </p>
         </div>
       </div>

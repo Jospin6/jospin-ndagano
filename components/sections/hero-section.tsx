@@ -3,12 +3,9 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowDownIcon, ArrowRight, Download } from "lucide-react";
-import { useTheme } from "next-themes";
+import { Download } from "lucide-react";
 
 export function HeroSection() {
-  const { theme } = useTheme();
-
   return (
     <section id="home" className="pt-3">
       <div className="flex gap-3">
@@ -40,9 +37,10 @@ export function HeroSection() {
         transition={{ delay: 0.4, duration: 0.5 }}
         className="text-[16px] text-muted-foreground mt-4"
       >
-        👋 Hey, I’m an AI Engineer passionate about creating intelligent solutions and modern web apps.
-        I transform complex ideas into impactful, scalable realities,
-        helping businesses innovate, automate, and thrive in the digital era.
+        Hey, I&apos;m an AI Engineer passionate about creating intelligent
+        solutions and modern web apps. I transform complex ideas into
+        impactful, scalable realities, helping businesses innovate, automate,
+        and thrive in the digital era.
       </motion.p>
 
       <motion.div

@@ -1,14 +1,15 @@
-import type { MetadataRoute } from 'next'
+import type { MetadataRoute } from 'next';
+import { siteConfig } from '@/lib/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
   return [
     {
-      url: `https://jospin-ndagano.vercel.app/`,
+      url: siteConfig.url,
       lastModified,
       changeFrequency: 'weekly',
       priority: 1,
-    }
+    },
   ];
 }

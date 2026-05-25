@@ -1,19 +1,17 @@
 "use client";
 
 import { projects } from "@/lib/content";
-import { Card } from "../ui/card"
-import Image from "next/image";
 import { ImageCard } from "../ui/ImageCard";
 import { motion } from "framer-motion";
 
 export const SectionProjects = () => {
 
-    return <div className="mt-10">
-        <motion.h1
+    return <div className="mt-10" id="projects">
+        <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
-            className="text-3xl font-semibold">My Projects</motion.h1>
+            className="text-3xl font-semibold">My Projects</motion.h2>
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

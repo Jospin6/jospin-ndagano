@@ -8,11 +8,11 @@ import { motion } from "framer-motion";
 export const SectionItem = ({ title, content }: { title: string, content: contentState[] }) => {
     return (
         <div className=" mt-10">
-            <motion.h1
+            <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
-                className="text-3xl font-semibold mb-3">{title}</motion.h1>
+                className="text-3xl font-semibold mb-3">{title}</motion.h2>
             <motion.ul
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

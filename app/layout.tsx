@@ -1,71 +1,71 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter as FontSans } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
-
-const fontSans = FontSans({ subsets: ['latin'], variable: '--font-sans' });
+import { siteConfig } from '@/lib/site';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
+  applicationName: siteConfig.name,
   title: {
-    default: "Jospin Ndagano - Software Engineer | AI & Automation Specialist",
+    default: siteConfig.title,
     template: "%s | Jospin Ndagano",
   },
-  description:
-    "Explore the portfolio of Jospin Ndagano, a software engineer passionate about building impactful AI and web solutions. Discover projects, skills, and services.",
-  keywords: [
-    "Jospin Ndagano",
-    "Software Engineer",
-    "Web Developer",
-    "AI Developer",
-    "Automation Specialist",
-    "Next.js Developer",
-    "Freelance Developer",
-    "Tech Portfolio",
-    "SaaS Developer",
-    "Full Stack Developer",
-    "Langchain Developer",
-    "AI Solutions",
-    "Web Automation",
-    "AI Applications",
-    "nuruAI"
-  ],
-  authors: [{ name: "Jospin Ndagano", url: "https://jospin-ndagano.vercel.app/" }],
-  creator: "Jospin Ndagano",
-  publisher: "Jospin Ndagano",
-  metadataBase: new URL("https://jospin-ndagano.vercel.app/"),
+  description: siteConfig.description,
+  keywords: [...siteConfig.keywords],
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  manifest: '/manifest.webmanifest',
+  category: 'technology',
+  classification: 'Portfolio',
+  referrer: 'origin-when-cross-origin',
   alternates: {
-    canonical: "https://jospin-ndagano.vercel.app/",
+    canonical: siteConfig.url,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+  formatDetection: {
+    address: false,
+    email: false,
+    telephone: false,
   },
   openGraph: {
-    title: "Jospin Ndagano - Software Engineer | AI & Web Automation",
-    description:
-      "Jospin Ndagano is a full-stack developer building AI-powered apps, automations, and modern web experiences.",
-    url: "https://jospin-ndagano.vercel.app/",
-    siteName: "Jospin Ndagano",
-    type: "website",
-    locale: "en_US",
-     images: [
-    {
-      url: "https://jospin-ndagano.vercel.app/jospin_ndagano.jpg",
-      width: 1200,
-      height: 630,
-      alt: "Jospin Ndagano Portfolio Preview",
-    },
-  ],
+    title: siteConfig.title,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: `${siteConfig.name} Portfolio`,
+    type: 'website',
+    locale: siteConfig.locale,
+    images: [
+      {
+        url: siteConfig.image,
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} portfolio preview`,
+      },
+    ],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Jospin Ndagano - Software Engineer | AI & Web Automation",
-    description:
-      "Discover the portfolio of Jospin Ndagano - building smart apps with AI, automation, and modern web tools.",
-    creator: "@JospinNdagano",
-    images: ["https://jospin-ndagano.vercel.app/jospin_ndagano.jpg"],
+    card: 'summary_large_image',
+    title: siteConfig.title,
+    description: siteConfig.description,
+    creator: '@JospinNdagano',
+    images: [siteConfig.image],
   },
-
 };
 
 export default function RootLayout({
@@ -75,12 +75,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head />
+      <head>
+        <link rel="author" href={siteConfig.url} />
+        {siteConfig.sameAs.map((profileUrl) => (
+          <link key={profileUrl} rel="me" href={profileUrl} />
+        ))}
+      </head>
       <body
-        className={cn(
-          "min-h-screen font-sans antialiased bg-background",
-          fontSans.variable
-        )}
+        className={cn("min-h-screen bg-background font-sans antialiased")}
       >
         <ThemeProvider
           attribute="class"
