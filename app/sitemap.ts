@@ -1,15 +1,14 @@
-import type { MetadataRoute } from 'next';
-import { siteConfig } from '@/lib/site';
+import type { MetadataRoute } from "next";
+import { projects } from "@/lib/content";
+import { siteConfig } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
-
   return [
-    {
-      url: siteConfig.url,
-      lastModified,
-      changeFrequency: 'weekly',
-      priority: 1,
-    },
+    { url: `${siteConfig.url}/`, changeFrequency: "monthly", priority: 1 },
+    ...projects.map((project) => ({
+      url: `${siteConfig.url}/work/${project.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
   ];
 }

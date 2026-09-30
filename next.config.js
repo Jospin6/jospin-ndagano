@@ -1,10 +1,10 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: 'export',
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  images: { unoptimized: true },
-};
+const { PHASE_DEVELOPMENT_SERVER } = require("next/constants");
 
-module.exports = nextConfig;
+/** @param {string} phase @returns {import('next').NextConfig} */
+module.exports = (phase) => ({
+  // Validate static export during the build; serve project routes normally in dev.
+  output: phase === PHASE_DEVELOPMENT_SERVER ? undefined : "export",
+  // A running preview must not overwrite production build manifests.
+  distDir: phase === PHASE_DEVELOPMENT_SERVER ? ".next-dev" : ".next",
+  images: { unoptimized: true },
+});

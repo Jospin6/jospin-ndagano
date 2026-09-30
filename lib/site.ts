@@ -1,32 +1,49 @@
+// Use the public production domain, never a temporary deployment URL.
+const configuredUrl = new URL(
+  process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://jospin-ndagano.vercel.app"
+);
+
+if (
+  !["http:", "https:"].includes(configuredUrl.protocol) ||
+  configuredUrl.pathname !== "/" ||
+  configuredUrl.search || configuredUrl.hash ||
+  configuredUrl.username || configuredUrl.password
+) {
+  throw new Error("NEXT_PUBLIC_SITE_URL must be an http(s) origin without a path, query, or credentials.");
+}
+
+const siteUrl = configuredUrl.origin;
+
 export const siteConfig = {
   name: "Jospin Ndagano",
   role: "AI Engineer",
-  company: "NuruAI",
-  title:
-    "Jospin Ndagano | Official Portfolio of an AI Engineer and Full-Stack Developer",
+  title: "Jospin Ndagano | AI Engineer",
   description:
-    "Official portfolio website of Jospin Ndagano, AI engineer, full-stack developer, and automation specialist. Explore projects, technical skills, articles, and contact details.",
+    "Jospin Ndagano, AI Engineer working across LLMs, RAG, agentic systems, machine learning, AI infrastructure, and intelligent backend architectures.",
   shortDescription:
-    "Official portfolio of Jospin Ndagano, AI engineer and full-stack developer.",
-  url: "https://jospin-ndagano.vercel.app",
-  image: "https://jospin-ndagano.vercel.app/jospin_ndagano.jpg",
+    "Jospin Ndagano, AI Engineer building reliable AI systems, from model workflows and data pipelines to backend services and infrastructure.",
+  url: siteUrl,
+  image: `${siteUrl}/jospin_ndagano.jpg`,
   email: "jospinndagano1@gmail.com",
   locale: "en_US",
   keywords: [
     "Jospin Ndagano",
     "Jospin Ndagano portfolio",
-    "official website of Jospin Ndagano",
-    "Jospin Ndagano AI engineer",
-    "Jospin Ndagano developer",
-    "AI engineer",
-    "full-stack developer",
-    "automation specialist",
-    "Next.js developer",
-    "TypeScript developer",
-    "Python developer",
-    "AI portfolio",
-    "software engineer portfolio",
-    "NuruAI",
+    "AI Engineer",
+    "AI engineering portfolio",
+    "retrieval-augmented generation",
+    "generative AI",
+    "large language models",
+    "agentic systems",
+    "AI infrastructure",
+    "backend architecture",
+    "machine learning",
+    "LangChain",
+    "LangGraph",
+    "Python",
+    "TypeScript",
+    "FastAPI",
+    "Next.js",
   ],
   sameAs: [
     "https://github.com/Jospin6",

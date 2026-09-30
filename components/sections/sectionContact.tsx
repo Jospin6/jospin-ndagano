@@ -1,8 +1,20 @@
-export const SectionContact = () => {
-    return <div className="my-10">
-        <h2 className="text-3xl font-semibold">Get in touch</h2>
-        <div className="mt-4">
-            <a href="mailto:jospinndagano1@gmail.com" className="underline text-sm">jospinndagano1@gmail.com</a>
+import { ArrowUpRight } from "lucide-react";
+import { CopyEmail } from "@/components/copy-email";
+import { siteConfig } from "@/lib/site";
+
+export function SectionContact() {
+  return (
+    <section id="contact" className="contact-section" aria-labelledby="contact-title">
+      <div className="shell">
+        <p className="eyebrow section-index">04 / Contact</p>
+        <div className="contact-grid">
+          <h2 id="contact-title">Get in <span className="serif">touch.</span></h2>
         </div>
-    </div>
+        <div className="contact-bottom">
+          <a className="contact-email" href={`mailto:${siteConfig.email}`}>{siteConfig.email}<ArrowUpRight aria-hidden="true" /></a>
+          <CopyEmail />
+        </div>
+      </div>
+    </section>
+  );
 }

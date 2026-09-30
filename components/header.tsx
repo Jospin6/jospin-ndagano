@@ -1,63 +1,75 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { useTheme } from "next-themes";
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Moon, Sun } from "lucide-react";
-import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 
-const navItems = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+const links = [
+  { label: "Projects", href: "/#projects" },
+  { label: "About", href: "/#about" },
+  { label: "Writing", href: "/#writing" },
 ];
 
 export function Header() {
-  const { theme, setTheme } = useTheme();
-  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const headerRef = useRef<HTMLElement>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => setOpen(false), [pathname]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 20;
-      if (isScrolled !== scrolled) {
-        setScrolled(isScrolled);
+    if (!open) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        toggleRef.current?.focus();
       }
     };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
+    const onPointer = (event: PointerEvent) => {
+      if (!headerRef.current?.contains(event.target as Node)) setOpen(false);
     };
-  }, [scrolled]);
+    const onResize = () => {
+      if (window.innerWidth >= 760) setOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("pointerdown", onPointer);
+    window.addEventListener("resize", onResize);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("pointerdown", onPointer);
+      window.removeEventListener("resize", onResize);
+    };
+  }, [open]);
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className={cn(
-        "transition-all px-4 md:px-0 md:w-6/12 md:m-auto duration-300",
-        scrolled
-          ? "bg-background/80 backdrop-blur-md shadow-md py-3"
-          : "bg-transparent py-5"
-      )}
-    >
-      <div className="flex items-center justify-between">
-        <Link href="#home" className="">
-          <div className="font-bold text-xl">
-            <span className="text-primary">Jospin</span>
-            <span className="text-primary/80 pl-2">N.</span>
-          </div>
+    <header className="site-header" ref={headerRef}>
+      <div className="shell header-inner">
+        <Link href="/" className="wordmark" aria-label="Jospin Ndagano — home" onClick={() => setOpen(false)}>
+          {/* <span className="monogram" aria-hidden="true">jn.</span> */}
+          <span>Jospin Ndagano<span className="wordmark-subtitle">AI Engineer</span></span>
         </Link>
-
-        <nav className="flex items-center space-x-1">
+        <button
+          type="button"
+          className="menu-toggle"
+          ref={toggleRef}
+          aria-expanded={open}
+          aria-controls="main-navigation"
+          aria-label={open ? "Close navigation" : "Open navigation"}
+          onClick={() => setOpen(!open)}
+        >
+          {open ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
+        </button>
+        <nav id="main-navigation" aria-label="Main navigation" className={open ? "main-nav is-open" : "main-nav"}>
+          {links.map((link) => (
+            <Link key={link.href} href={link.href} onClick={() => setOpen(false)}>{link.label}</Link>
+          ))}
+          <Link href="/#contact" className="nav-contact" onClick={() => setOpen(false)}>
+            Contact <ArrowUpRight size={15} aria-hidden="true" />
+          </Link>
         </nav>
       </div>
-    </motion.header>
+    </header>
   );
 }

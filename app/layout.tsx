@@ -1,18 +1,23 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { ThemeProvider } from '@/components/theme-provider';
-import { Toaster } from '@/components/ui/toaster';
-import { cn } from '@/lib/utils';
+import localFont from 'next/font/local';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { siteConfig } from '@/lib/site';
+
+const manrope = localFont({
+  src: '../public/fonts/manrope-variable.ttf',
+  variable: '--font-manrope',
+  display: 'swap',
+  weight: '200 800',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   applicationName: siteConfig.name,
   title: {
     default: siteConfig.title,
-    template: "%s | Jospin Ndagano",
+    template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   keywords: [...siteConfig.keywords],
@@ -20,6 +25,9 @@ export const metadata: Metadata = {
   creator: siteConfig.name,
   publisher: siteConfig.name,
   manifest: '/manifest.webmanifest',
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION?.trim() || undefined,
+  },
   category: 'technology',
   classification: 'Portfolio',
   referrer: 'origin-when-cross-origin',
@@ -47,14 +55,14 @@ export const metadata: Metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     url: siteConfig.url,
-    siteName: `${siteConfig.name} Portfolio`,
+    siteName: siteConfig.name,
     type: 'website',
     locale: siteConfig.locale,
     images: [
       {
         url: siteConfig.image,
-        width: 1200,
-        height: 630,
+        width: 879,
+        height: 865,
         alt: `${siteConfig.name} portfolio preview`,
       },
     ],
@@ -74,27 +82,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={manrope.variable}>
       <head>
         <link rel="author" href={siteConfig.url} />
         {siteConfig.sameAs.map((profileUrl) => (
           <link key={profileUrl} rel="me" href={profileUrl} />
         ))}
       </head>
-      <body
-        className={cn("min-h-screen bg-background font-sans antialiased")}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <Toaster />
-        </ThemeProvider>
+      <body id="top">
+        <a className="skip-link" href="#main-content">Skip to content</a>
+        <Header />
+        <main id="main-content" tabIndex={-1}>{children}</main>
+        <Footer />
       </body>
     </html>
   );

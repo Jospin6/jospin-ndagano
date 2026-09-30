@@ -1,88 +1,33 @@
-"use client";
-
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { Download } from "lucide-react";
+import Image from "next/image";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section id="home" className="pt-3">
-      <div className="flex gap-3">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          className="relative"
-        >
-          <img
-            src="/jospin_ndagano.jpg"
-            alt="Jospin Ndagano"
-            className="w-[100px] h-[100px] object-fill rounded-full shadow-lg"
-          />
-        </motion.div>
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-          className="text-2xl md:text-4xl font-bold  mb-4"
-        >
-          <div className="text-primary">Jospin Ndagano</div>
-          <div className="text-lg font-sans font-medium mt-1">AI Engineer</div>
-        </motion.h1>
+    <section id="home" className="hero shell" aria-labelledby="hero-title">
+      <div className="hero-main">
+        <div className="hero-copy">
+          <h1 id="hero-title">Jospin Ndagano.<br /><span className="serif">AI Engineer.</span></h1>
+          <p className="hero-intro">I engineer AI systems that turn complex problems into reliable, production-ready software. My work spans LLMs, RAG, agentic systems, machine learning, AI infrastructure, and intelligent backend architectures. I focus on building systems that can reason, use tools, work with data, and operate reliably in real-world environments.</p>
+          <div className="hero-actions">
+            <a className="button-primary" href="#projects">View my projects <ArrowDown size={17} aria-hidden="true" /></a>
+            <a className="text-link" href="/jospin_ndagano_resume.pdf" target="_blank" rel="noreferrer">View résumé <ArrowUpRight size={16} aria-hidden="true" /></a>
+          </div>
+        </div>
+        <aside className="hero-profile" aria-label="Profile">
+          <div className="portrait-frame">
+            <Image src="/jospin_ndagano.jpg" alt="Jospin Ndagano" width={440} height={434} priority sizes="(max-width: 759px) 88px, 220px" className="portrait" />
+            <span className="portrait-corner" aria-hidden="true">+</span>
+          </div>
+          <div className="profile-caption">
+            <span className="profile-name">Jospin Ndagano</span>
+            <span className="profile-detail">AI Engineer.</span>
+          </div>
+        </aside>
       </div>
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.5 }}
-        className="text-[16px] text-muted-foreground mt-4"
-      >
-        Hey, I&apos;m an AI Engineer passionate about creating intelligent
-        solutions and modern web apps. I transform complex ideas into
-        impactful, scalable realities, helping businesses innovate, automate,
-        and thrive in the digital era.
-      </motion.p>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: 0.5 }}
-        className="flex-wrap mt-4"
-      >
-        <Button asChild variant="outline" size="lg" className="gap-2 mr-4 h-[30px] px-2">
-          <Link href="https://github.com/Jospin6">
-            Github
-          </Link>
-        </Button>
-        <Button asChild variant="outline" size="lg" className="gap-2 px-2 mr-4 mb-2 h-[30px]">
-          <Link href="https://www.linkedin.com/in/jospin-ndagano/">
-            LinkedIn
-          </Link>
-        </Button>
-        <Button asChild variant="outline" size="lg" className="gap-2 px-2 mr-4 mb-2 h-[30px]">
-          <Link href="https://twitter.com/JospinNdagano">
-            X
-          </Link>
-        </Button>
-        <Button asChild variant="outline" size="lg" className="gap-2 px-2 mr-4 mb-2 h-[30px]">
-          <Link href="https://medium.com/@jospinndagano1">
-            Medium
-          </Link>
-        </Button>
-        <Button asChild variant="outline" size="lg" className="gap-2 px-2 mr-4 mb-2 h-[30px]">
-          <Link href="https://dev.to/jospin6">
-            {"Dev.to"}
-          </Link>
-        </Button>
-        <Button asChild variant="outline" size="lg" className="gap-2 px-2 mr-4 mb-2 h-[30px]">
-          <a
-            href={"/jospin_ndagano_resume.pdf"}
-            download
-            className="flex items-center gap-2">
-            <Download className="h-4 w-4" /> My Resume
-          </a>
-        </Button>
-      </motion.div>
+      <div className="hero-footnote">
+        <span className="eyebrow">AI Engineer</span>
+        <a href="https://github.com/Jospin6" target="_blank" rel="noreferrer" className="text-link small-link">GitHub <ArrowUpRight size={14} aria-hidden="true" /></a>
+      </div>
     </section>
   );
 }
