@@ -12,6 +12,12 @@ const manrope = localFont({
   weight: '200 800',
 });
 
+// Google Search Console verification tokens are public by design. Keeping this
+// fallback in the source also makes verification work on the first deployment;
+// the environment variable can still override it for a future token.
+const googleSiteVerification =
+  process.env.GOOGLE_SITE_VERIFICATION?.trim() ||
+  'fT-Rv6UVbgyzPGH_mKD1GiPiUnI7NKkxxJZcu5aqC5E';
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   applicationName: siteConfig.name,
@@ -26,7 +32,7 @@ export const metadata: Metadata = {
   publisher: siteConfig.name,
   manifest: '/manifest.webmanifest',
   verification: {
-    google: process.env.GOOGLE_SITE_VERIFICATION?.trim() || undefined,
+    google: googleSiteVerification,
   },
   category: 'technology',
   classification: 'Portfolio',
